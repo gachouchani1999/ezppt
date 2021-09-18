@@ -14,5 +14,13 @@ def create_app(test_config=None):
             pass
         return render_template('index.html')
 
+    @app.route('/loading')
+    def loading():
+        return render_template('loading.html')
+
+    @app.route('/download')
+    def download():
+        return render_template('download.html')
+
     Bootstrap(app)
     return app
