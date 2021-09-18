@@ -39,7 +39,7 @@ td p {
     text-align: center;
 }
 
-img {
+.themes-table img {
     width: 10vw;
     min-width: 150px;
 }
@@ -102,20 +102,31 @@ img {
   display: none !important;
 }
 
+/* Download Page */
 
-/* GEARS */
-
-.loading {
+/* .loading {
+  text-align: center;
   display: none !important;
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
+} */
+
+.download img, svg {
+    margin-top: 100px;
+    height: 250px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
 }
 
-svg {
-  height: 400px;
-  width: 400px;
+#pptx-status {
+    margin-top: 100px;
 }
+
+/* GEARS */
+
 @-webkit-keyframes gears_rotate {
   0% {
     -webkit-transform: rotate(0);
