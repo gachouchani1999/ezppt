@@ -10,7 +10,7 @@
 <nav>
   <h1 class="text-center">TBD</h1>
 </nav>
-<p class="text-center center">
+<p class="intro text-center center">
     Tired of making powerpoints to catch your team up on the latest studies?
     You've come to the right place. TBD uses natural language processing to
     pick out the most important points and summarizes the paper in 5 slides
@@ -24,9 +24,38 @@
             <input type="file" name="file" accept=".pdf" class="drop-zone__input">
         </div>
     </div>
+    <div class="themes-showcase">
+        <h4 class="text-center">Select Your Theme</h4>
+        <table class="themes-table">
+            <tr>
+                <td data-theme-num="1">
+                    <p>Gallery</p>
+                    <img src="{{url_for('static', filename='themes/gallery.png')}}">
+                </td>
+                <td data-theme-num="2">
+                    <p>Ion Boardroom</p>
+                    <img src="{{url_for('static', filename='themes/ion-boardroom.png')}}">
+                </td>
+                <td data-theme-num="3">
+                    <p>Ion</p>
+                    <img src="{{url_for('static', filename='themes/ion.png')}}">
+                </td>
+                <td data-theme-num="4">
+                    <p>Organic</p>
+                    <img src="{{url_for('static', filename='themes/organic.png')}}">
+                </td>
+                <td data-theme-num="5">
+                    <p>Slice</p>
+                    <img src="{{url_for('static', filename='themes/slice.png')}}">
+                </td>
+            </tr>
+        </table>
+        <input type="number" id="theme" name="theme" min="1" max="5">
+    </div>
     <div class="text-center">
-        <button type="submit" class="btn btn-default">Generate PPTX</button>
+        <button type="submit" class="btn btn-primary">Generate PPTX</button>
     </div>
 </form>
+<script src="{{url_for('static', filename='themes.js')}}"></script>
 <script src="{{url_for('static', filename='dropzone.js')}}"></script>
 {% endblock %}
