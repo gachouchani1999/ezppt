@@ -36,9 +36,10 @@ def summarize_heading(heading_text):
         sentence_weight[sentence] = sentence_weight[sentence]
     select_length = 2
     summary = nlargest(select_length, sentence_weight, key= sentence_weight.get)
-    final_summary = [word for word in summary]
-    summary = ''.join(final_summary)
-    print(summary)
+    
+    return summary
+
+
 
 a = """
 Near-field self-imaging of waves behind periodic grat-ing  masks,  dubbed  the  Talbot  effect  [1],  is  a  funda-mental  interference  phenomenon  with  interesting  rela-tions to physics and math [2].  It enables lens-free focus-ing, demonstrated for photons [3–6], electrons [7], atoms[8,  9],  and  even  large  molecules  [10,  11].   Remarkably,this self-imaging maps onto the propagation of waves oncylindrical  surfaces,  where  the  periodicity  of  the  anglecoordinate replaces the periodic grating and where frac-tional Talbot revivals appear as spatially separated su-perpositions of the impinging wave packet [12–14].
