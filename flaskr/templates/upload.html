@@ -1,14 +1,22 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}TBD{% endblock %}
+{% block title %}EZPowerPoint{% endblock %}
 
 {% block styles %}
 {{super()}}
 <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 {% endblock %}
 
+{% block head %}
+{{super()}}
+<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon/apple-touch-icon.png')}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon/favicon-32x32.png')}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon/favicon-16x16.png')}}">
+<link rel="manifest" href="{{url_for('static', filename='favicon/site.webmanifest')}}">
+{% endblock %}
+
 {% block content %}
 <nav>
-  <h1 class="text-center">TBD</h1>
+    <img src="{{url_for('static', filename='media/logo.png')}}">
 </nav>
 <div id="upload">
     <p class="intro text-center center">
@@ -18,12 +26,11 @@
         or less. Simply upload your files, click generate, and wait for your work
         to be done for you!
     </p>
-    
     <form action="http://localhost:5000/uploader" method="post" enctype = "multipart/form-data">
         <div class="center">
             <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop Files Here or Click to Upload</span>
-                <input type="file" name="file" accept=".pdf" class="drop-zone__input">
+                <input type="file" name="file" accept=".docx" class="drop-zone__input" style="display:none;">
             </div>
         </div>
         <div class="themes-showcase">
@@ -55,7 +62,7 @@
             <input type="number" id="theme" name="theme" min="1" max="5">
         </div>
         <div class="text-center">
-            <button type="submit" id="generatePPTXBtn" action="" class="btn btn-primary" disabled>Generate PPTX</button>
+            <button type="submit" id="generateSlidesBtn" action="" class="btn btn-primary" disabled>Generate Slides</button>
         </div>
     </form>
 </div>

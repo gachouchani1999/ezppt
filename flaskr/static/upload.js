@@ -3,7 +3,7 @@ var themeBool = false;
 
 function updateGenerateBtn() {
     console.log(!(fileBool && themeBool));
-    document.getElementById("generatePPTXBtn").disabled = !(fileBool && themeBool);
+    document.getElementById("generateSlidesBtn").disabled = !(fileBool && themeBool);
 }
 
 function themeClickHandler() {

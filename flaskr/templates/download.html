@@ -6,9 +6,17 @@
 <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 {% endblock %}
 
+{% block head %}
+{{super()}}
+<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon/apple-touch-icon.png')}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon/favicon-32x32.png')}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon/favicon-16x16.png')}}">
+<link rel="manifest" href="{{url_for('static', filename='favicon/site.webmanifest')}}">
+{% endblock %}
+
 {% block content %}
 <nav>
-  <h1 class="text-center">TBD</h1>
+    <img src="{{url_for('static', filename='media/logo.png')}}">
 </nav>
 <div class="download">
     <div id="loading">
