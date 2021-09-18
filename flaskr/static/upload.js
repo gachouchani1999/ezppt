@@ -7,14 +7,14 @@ function updateGenerateBtn() {
 }
 
 function themeClickHandler() {
-    document.querySelectorAll('.themes-table td')
+    document.querySelectorAll('.td')
     .forEach(e => e.style.border = "none");
     this.style.border = "2px solid #337ab7";
     document.getElementById("theme").value = this.dataset.themeNum;
     themeBool = true; updateGenerateBtn();
 }
 
-document.querySelectorAll('.themes-table td')
+document.querySelectorAll('.td')
 .forEach(e => e.addEventListener("click", themeClickHandler));
 
 // Modifies https://codepen.io/dcode-software/pen/xxwpLQo
