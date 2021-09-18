@@ -14,7 +14,7 @@ def summarize_heading(heading_text):
     word_frequencies = {}
     for word in tokens :
         if word.lower() not in stop_words and word.lower() not in punctuation:
-            if word.lower() not in word_frequencies.keys():
+            if word not in word_frequencies.keys():
                 word_frequencies[word] =1
             else:
                 word_frequencies[word] += 1
@@ -34,32 +34,20 @@ def summarize_heading(heading_text):
                 else:
                     sentence_weight[sentence] = word_frequencies[word_weight]
         sentence_weight[sentence] = sentence_weight[sentence]
-    select_length = int(len(sentence_weight)*0.4)
+    select_length = 2
     summary = nlargest(select_length, sentence_weight, key= sentence_weight.get)
     final_summary = [word for word in summary]
     summary = ''.join(final_summary)
     print(summary)
 
-
-    
-
-
 a = """
-After less than 18 tumultuous months as the head of
-Teva, the world‘s largest generic pharmaceuticals
-company, in October 2013 Jeremy Levin stepped down
-as CEO. He had been brought into the company in
-January 2012 to change Teva’s strategy from that of the
-outgoing CEO and President Shlomo Yanai, a former
-high-ranking army officer, when it seemed clear that the
-target of achieving global sales of US$D 33bn 1 by 2015
-was no longer achievable, and the share price had subse-
-quently collapsed. Its third CEO within two years was
-appointed in 2014: Erez Vigodman, a company insider,
-who announced that Teva would introduce its third new
-global strategy in three years with a focus on product
-rationalisation, organic growth and cost saving."""
-summarize_heading(a)
+Near-field self-imaging of waves behind periodic grat-ing  masks,  dubbed  the  Talbot  effect  [1],  is  a  funda-mental  interference  phenomenon  with  interesting  rela-tions to physics and math [2].  It enables lens-free focus-ing, demonstrated for photons [3–6], electrons [7], atoms[8,  9],  and  even  large  molecules  [10,  11].   Remarkably,this self-imaging maps onto the propagation of waves oncylindrical  surfaces,  where  the  periodicity  of  the  anglecoordinate replaces the periodic grating and where frac-tional Talbot revivals appear as spatially separated su-perpositions of the impinging wave packet [12–14].
+"""
+
+summarize_heading(a)  
+
+
+
 
 
 
