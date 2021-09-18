@@ -10,12 +10,17 @@
 <nav>
   <h1 class="text-center">TBD</h1>
 </nav>
-<div class='auth'>
-    <p class="text-center text-white pt-5">Hello and welcome to our website</p>
-    <form method="post">
-        <div class="text-center">
-            <button type="submit" class="btn btn-default">Generate PPTX</button>
+<p class="text-center">Hello and welcome to our website</p>
+<form method="post">
+    <div class="center">
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Drop Files Here or Click to Upload</span>
+            <input type="file" name="file" accept=".pdf" class="drop-zone__input">
         </div>
-    </form>
-</div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-default">Generate PPTX</button>
+    </div>
+</form>
+<script src="{{url_for('static', filename='dropzone.js')}}"></script>
 {% endblock %}
