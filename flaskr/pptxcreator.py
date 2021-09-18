@@ -3,10 +3,10 @@ from pptx import Presentation
 
 
 THEME_PATH = {
-    1: 'themes/gallery.pptx'
-    2: 'themes/ion.pptx'
-    3: 'themes/ion-boardroom.pptx'
-    4: 'themes/organic.pptx'
+    1: 'themes/gallery.pptx',
+    2: 'themes/ion.pptx',
+    3: 'themes/ion-boardroom.pptx',
+    4: 'themes/organic.pptx',
     5: 'themes/slice.pptx'
 }
 
