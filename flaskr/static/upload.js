@@ -17,11 +17,6 @@ function themeClickHandler() {
 document.querySelectorAll('.themes-table td')
 .forEach(e => e.addEventListener("click", themeClickHandler));
 
-function generatePPTXClick() {
-    document.getElementById('loading').style.display = "block";
-    document.getElementById('upload').style.display = "none";
-}
-
 // Modifies https://codepen.io/dcode-software/pen/xxwpLQo
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
