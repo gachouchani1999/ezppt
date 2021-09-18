@@ -1,5 +1,11 @@
 var fileBool = false;
 var themeBool = false;
+var acceptedFileTypes = [
+    "application/doc",
+    "application/ms-doc",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+]
 
 function updateGenerateBtn() {
     console.log(!(fileBool && themeBool));
@@ -26,7 +32,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   });
 
   inputElement.addEventListener("change", (e) => {
-    if (inputElement.files.length) {
+    if (inputElement.files.length == 1) {
       updateThumbnail(dropZoneElement, inputElement.files[0]);
       fileBool = true; updateGenerateBtn();
     }
@@ -46,10 +52,17 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   dropZoneElement.addEventListener("drop", (e) => {
     e.preventDefault();
 
-    if (e.dataTransfer.files.length) {
-      inputElement.files = e.dataTransfer.files;
-      updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-      fileBool = true; updateGenerateBtn();
+    if (e.dataTransfer.files.length == 1) {
+      file = e.dataTransfer.files[0];
+      if (acceptedFileTypes.includes(file.type)) {
+        inputElement.files = e.dataTransfer.files;
+        updateThumbnail(dropZoneElement, file);
+        fileBool = true; updateGenerateBtn();
+      } else {
+        console.log("Must be .doc or .docx");
+      }
+    } else {
+      console.log("Only drop a single file");
     }
 
     dropZoneElement.classList.remove("drop-zone--over");
