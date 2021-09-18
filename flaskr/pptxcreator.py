@@ -51,15 +51,15 @@ def create_slides(theme, name, titles, summaries):
     prs.save(name + '.pptx')
 
 
-# def test_me():
-#     create_slides(
-#         2,
-#         "test",
-#         ["slide 1", "slide 2", "slide 3"],
-#         [
-#             ["point 1", "point 2", "point 3"],
-#             ["point 4", "point 5", "point 6"],
-#             ["point 7", "point 8", "point 9"],
-#         ])
+def test_me():
+    create_slides(
+         2,
+        "test",
+        ["slide 1", "slide 2", "slide 3"],
+        [
+            ["point 1", "point 2", "point 3"],
+            ["point 4", "point 5", "point 6"],
+           ["point 7", "point 8", "point 9"],
+       ])
 
-# test_me()
+test_me()
