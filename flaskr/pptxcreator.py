@@ -1,4 +1,4 @@
-# from flask import url_for
+from flask import url_for
 from pptx import Presentation
 
 
@@ -20,8 +20,7 @@ def create_slides(theme, name, titles, summaries):
         summaries -- (list[list]) slide content
     """
 
-    url = url_for('static', filename=THEME_PATH[theme])
-    prs = Presentation(url)
+    prs = Presentation(THEME_PATH[theme])
 
     title_slide_layout = prs.slide_layouts[0]
     bullet_slide_layout = prs.slide_layouts[1]
@@ -52,15 +51,4 @@ def create_slides(theme, name, titles, summaries):
     prs.save(name + '.pptx')
 
 
-# def test_me():
-#     create_slides(
-#         1,
-#         "test",
-#         ["slide 1", "slide 2", "slide 3"],
-#         [
-#             ["point 1", "point 2", "point 3"],
-#             ["point 4", "point 5", "point 6"],
-#            ["point 7", "point 8", "point 9"],
-#        ])
-#
-# test_me()
+
