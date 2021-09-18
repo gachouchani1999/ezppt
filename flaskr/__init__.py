@@ -8,27 +8,17 @@ def create_app(test_config=None):
 
     app = Flask(__name__, instance_relative_config=True)
 
-    # @app.route('/', methods=['GET', 'POST'])
-    # def upload_file():
-    #  return render_template('index.html')
-    #
-    #
-    # @app.route('/uploader', methods=['GET', 'POST'])
-    # def index():
-    #     if request.method == 'POST':
-    #          f = request.files['file']
-    #          f.save(secure_filename(f.filename))
-    #          return "complete"
-
     @app.route('/', methods=['GET', 'POST'])
     def upload_file():
+     return render_template('upload.html')
+    
+    
+    @app.route('/uploader', methods=['GET', 'POST'])
+    def index():
         if request.method == 'POST':
-            return redirect(url_for('download'))
-        return render_template('upload.html')
-
-    @app.route('/download')
-    def download():
+             f = request.files['file']
+             f.save(secure_filename(f.filename))
         return render_template('download.html')
 
-    Bootstrap(app)
+    Bootstrap (app)
     return app
