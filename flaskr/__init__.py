@@ -3,7 +3,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_bootstrap import Bootstrap
 from werkzeug.utils import secure_filename
-
+from flask import Flask, send_file
 def create_app(test_config=None):
 
     app = Flask(__name__, instance_relative_config=True)
@@ -19,6 +19,13 @@ def create_app(test_config=None):
              f = request.files['file']
              f.save(secure_filename(f.filename))
         return render_template('download.html')
+
+    @app.route('/download')
+    def download():
+
+         path = "testpath.pdf"
+         return send_file(path, as_attachment=True)
+         
 
     Bootstrap (app)
     return app
