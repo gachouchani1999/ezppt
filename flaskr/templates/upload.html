@@ -54,10 +54,9 @@
             <input type="number" id="theme" name="theme" min="1" max="5">
         </div>
         <div class="text-center">
-            <button type="submit" onclick="generatePPTXClick()" class="btn btn-primary">Generate PPTX</button>
+            <button type="submit" id="generatePPTXBtn" onclick="generatePPTXClick()" class="btn btn-primary" disabled>Generate PPTX</button>
         </div>
     </form>
 </div>
-<script src="{{url_for('static', filename='general.js')}}"></script>
-<script src="{{url_for('static', filename='dropzone.js')}}"></script>
+<script src="{{url_for('static', filename='upload.js')}}"></script>
 {% endblock %}

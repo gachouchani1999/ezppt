@@ -1,3 +1,27 @@
+var fileBool = false;
+var themeBool = false;
+
+function updateGenerateBtn() {
+    console.log(!(fileBool && themeBool));
+    document.getElementById("generatePPTXBtn").disabled = !(fileBool && themeBool);
+}
+
+function themeClickHandler() {
+    document.querySelectorAll('.themes-table td')
+    .forEach(e => e.style.border = "none");
+    this.style.border = "2px solid #337ab7";
+    document.getElementById("theme").value = this.dataset.themeNum;
+    themeBool = true; updateGenerateBtn();
+}
+
+document.querySelectorAll('.themes-table td')
+.forEach(e => e.addEventListener("click", themeClickHandler));
+
+function generatePPTXClick() {
+    document.getElementById('loading').style.display = "block";
+    document.getElementById('upload').style.display = "none";
+}
+
 // Modifies https://codepen.io/dcode-software/pen/xxwpLQo
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
@@ -9,6 +33,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   inputElement.addEventListener("change", (e) => {
     if (inputElement.files.length) {
       updateThumbnail(dropZoneElement, inputElement.files[0]);
+      fileBool = true; updateGenerateBtn();
     }
   });
 
@@ -29,6 +54,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     if (e.dataTransfer.files.length) {
       inputElement.files = e.dataTransfer.files;
       updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+      fileBool = true; updateGenerateBtn();
     }
 
     dropZoneElement.classList.remove("drop-zone--over");

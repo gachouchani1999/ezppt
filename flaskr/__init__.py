@@ -12,7 +12,7 @@ def create_app(test_config=None):
     def index():
         if request.method == 'POST':
             pass
-        return render_template('index.html')
+        return render_template('upload.html')
 
     @app.route('/loading')
     def loading():
