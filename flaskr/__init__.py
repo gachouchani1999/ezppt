@@ -22,7 +22,8 @@ def create_app(test_config=None):
              f = request.files['file']
              theme = request.form['theme']
              f.save(secure_filename(f.filename))
-             doc_reader.final_create(int(theme),f.filename)
+             path = '../'+f.filename
+             doc_reader.final_create(int(theme),path)
         return render_template('download.html')
 
     @app.route('/download')
