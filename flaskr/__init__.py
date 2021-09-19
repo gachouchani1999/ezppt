@@ -26,15 +26,17 @@ def index():
 
 
 
-@app.route('/download')
+@app.route('/download', methods=['GET','POST'] )
 def download():
-     filename_new = f.filename[:f.filename.find('.')]
-     path = '../'+filename_new + '.pptx'
-     return send_file(path, as_attachment=True)
+     if request.method == 'POST':
+
+          filename_new = f.filename[:f.filename.find('.')]
+          path = '../'+filename_new + '.pptx'
+          return send_file(path, as_attachment=True)
          
 
 Bootstrap (app)
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(threaded=True)
