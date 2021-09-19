@@ -8,7 +8,7 @@ from . import doc_reader
 
 
 app = Flask(__name__, instance_relative_config=True)
-global f
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
      return render_template('upload.html')
@@ -17,7 +17,10 @@ def upload_file():
 @app.route('/uploader', methods=['GET', 'POST'])
 def index():
      if request.method == 'POST':
+          global file_name
           f = request.files['file']
+          file_name = f.filename
+          file_name = file_name.replace(" ","_")
           theme = request.form['theme']
           f.filename = f.filename.replace(" ","_")
           f.save(secure_filename(f.filename))
@@ -29,7 +32,8 @@ def index():
 
 @app.route('/download')
 def download():
-          filename_new = f.filename[:f.filename.find('.')]
+          
+          filename_new = file_name[:file_name.find('.')]
           path = '../'+filename_new + '.pptx'
           return send_file(path, as_attachment=True)
 
