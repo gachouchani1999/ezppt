@@ -53,11 +53,3 @@ def find_title(heading_text):
                 word_frequencies[word] += 1
     max_freq = max(word_frequencies.values())
     return (list(word_frequencies.keys())[list(word_frequencies.values()).index(max_freq)])
-    
-
-
-
-
-
-
-
