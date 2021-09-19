@@ -11,17 +11,17 @@ nav img {
 }
 
 button {
-    padding: 25px !important;
-    margin-top: 10px;
+    padding: 20px !important;
+    margin-top: 15px;
 }
 
 .intro {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .themes-showcase {
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 .themes-showcase h4 {
@@ -87,7 +87,7 @@ button {
   font-weight: 500;
   font-size: 20px;
   cursor: pointer;
-  color: #cccccc;
+  color: #337ab7;
   border: 2px dashed #337ab7;
   border-radius: 5px;
   box-sizing: border-box;
@@ -98,26 +98,7 @@ button {
 }
 
 .drop-zone__thumb {
-  width: 50%;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #cccccc;
-  background-size: cover;
-  position: relative;
-}
-
-.drop-zone__thumb::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 5px 0;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.75);
-  font-size: 14px;
-  text-align: center;
+    position: relative;
 }
 
 .center {

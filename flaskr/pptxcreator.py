@@ -29,7 +29,7 @@ def create_slides(theme, name, titles, summaries):
     title = slide.shapes.title
     title.text = name
     subtitle = slide.placeholders[1]
-    subtitle.text = "Made by TBD"
+    subtitle.text = "Made by EZ PowerPoint"
 
     for i in range(len(titles)):
 
@@ -50,6 +50,3 @@ def create_slides(theme, name, titles, summaries):
 
     name.replace('_', ' ')
     prs.save(name + '.pptx')
-
-
-
