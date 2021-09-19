@@ -22,6 +22,7 @@ def index():
           theme = request.form['theme']
           f.save(secure_filename(f.filename))
           doc_reader.final_create(int(theme),f.filename)
+          os.remove(f.filename)
           return render_template('download.html')
 
 
@@ -31,6 +32,7 @@ def download():
           filename_new = f.filename[:f.filename.find('.')]
           path = '../'+filename_new + '.pptx'
           return send_file(path, as_attachment=True)
+
          
 
 Bootstrap (app)
