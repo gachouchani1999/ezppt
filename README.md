@@ -13,4 +13,4 @@ EZPPT runs Natural Language Processing algorithms that is able to analyze a DOCX
 6. Run `deactivate` and `source venv/bin/activate` to restart the virtual env to load bootstrap-flask (the package has a bug)
 1. Run `export FLASK_APP=flaskr` and `export FLASK_ENV=development` to set env variables
 1. Run `flask run` to start the server
-2. Navigate to [http://127.0.0.1:5000/] to see the product!
+2. Navigate to http://127.0.0.1:5000/ to see the product!
