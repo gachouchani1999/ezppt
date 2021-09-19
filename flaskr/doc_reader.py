@@ -17,8 +17,10 @@ def final_create(theme,filename):
         
         
         a = doc_analyzer.summarize_heading(par.text)
+        
         headings.append(a)
-        title_headings.append(str(i))
+        title_headings.append("Page " + str(i))
+        
     filename_new = filename[:filename.find('.')].title()
     
     pptxcreator.create_slides(theme,filename_new,title_headings,headings)

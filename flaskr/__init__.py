@@ -6,31 +6,37 @@ from werkzeug.utils import secure_filename
 from flask import Flask, send_file
 from . import doc_reader
 
-def create_app(test_config=None):
 
-    app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__, instance_relative_config=True)
 
-    @app.route('/', methods=['GET', 'POST'])
-    def upload_file():
+@app.route('/', methods=['GET', 'POST'])
+def upload_file():
      return render_template('upload.html')
-    
-    
-    @app.route('/uploader', methods=['GET', 'POST'])
-    def index():
-        if request.method == 'POST':
-             global f
-             f = request.files['file']
-             theme = request.form['theme']
-             f.save(secure_filename(f.filename))
-             doc_reader.final_create(int(theme),f.filename)
-        return render_template('download.html')
 
-    @app.route('/download')
-    def download():
-         filename_new = f.filename[:f.filename.find('.')]
-         path = '../'+filename_new + '.pptx'
-         return send_file(path, as_attachment=True)
+
+@app.route('/uploader', methods=['GET', 'POST'])
+def index():
+     if request.method == 'POST':
+          global f
+          f = request.files['file']
+          theme = request.form['theme']
+          f.save(secure_filename(f.filename))
+          doc_reader.final_create(int(theme),f.filename)
+          return render_template('download.html')
+
+
+
+@app.route('/download', methods=['GET','POST'] )
+def download():
+     if request.method == 'POST':
+
+          filename_new = f.filename[:f.filename.find('.')]
+          path = '../'+filename_new + '.pptx'
+          return send_file(path, as_attachment=True)
          
 
-    Bootstrap (app)
-    return app
+Bootstrap (app)
+
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True)
