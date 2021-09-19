@@ -26,10 +26,8 @@ def index():
 
 
 
-@app.route('/download', methods=['GET','POST'] )
+@app.route('/download')
 def download():
-     if request.method == 'POST':
-
           filename_new = f.filename[:f.filename.find('.')]
           path = '../'+filename_new + '.pptx'
           return send_file(path, as_attachment=True)
