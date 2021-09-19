@@ -2,7 +2,7 @@
 
 EZPPT runs Natural Language Processing algorithms that is able to analyze a DOCX document and return a powerpoint file with the most important points summarized into a neat powerpoint template that is ready to use with only a few tweaks from the user. 
 
-Visit the project on Devpost (https://devpost.com/software/ez-powerpoint) to see details on our inspiration and plans.
+Visit the project on [devpost](https://devpost.com/software/ez-powerpoint) to see details on our inspiration and plans.
 
 
 ## Local Development Instructions
