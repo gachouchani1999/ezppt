@@ -22,15 +22,14 @@
     <p class="intro text-center center">
         Tired of making powerpoints and losing hours that could be put into deep work?
         You've come to the right place. EZ PowerPoint uses natural language processing algorithms to
-        pick out the most important points and summarizes the report or paper. Simply upload your files, click generate, and wait for your work
-        to be done for you!
+        pick out the most important points and summarizes the report or paper. Simply upload your file,
+        choose a theme, click generate, and wait for your work to be done for you!
     </p>
     <form action="http://ezppt.herokuapp.com/uploader" method="post" enctype = "multipart/form-data">
         <div class="center">
             <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop Files Here or Click to Upload</span>
-                <input type="file" name="file" accept="application/doc, application/ms-doc, application/msword,
-                    application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     class="drop-zone__input" style="display:none;">
             </div>
         </div>
@@ -43,12 +42,12 @@
                         <img src="{{url_for('static', filename='media/gallery.png')}}">
                     </div>
                     <div class="td" data-theme-num="2">
-                        <p>Ion Boardroom</p>
-                        <img src="{{url_for('static', filename='media/ion-boardroom.png')}}">
-                    </div>
-                    <div class="td" data-theme-num="3">
                         <p>Ion</p>
                         <img src="{{url_for('static', filename='media/ion.png')}}">
+                    </div>
+                    <div class="td" data-theme-num="3">
+                        <p>Ion Boardroom</p>
+                        <img src="{{url_for('static', filename='media/ion-boardroom.png')}}">
                     </div>
                     <div class="td" data-theme-num="4">
                         <p>Organic</p>

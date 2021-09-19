@@ -1,10 +1,7 @@
 var fileBool = false;
 var themeBool = false;
 var acceptedFileTypes = [
-    "application/doc",
-    "application/ms-doc",
-    "application/msword",
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ]
 
 function updateGenerateBtn() {
@@ -59,10 +56,10 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         updateThumbnail(dropZoneElement, file);
         fileBool = true; updateGenerateBtn();
       } else {
-        alert("FileType must be .doc or .docx");
+        alert("Please upload a .docx extension");
       }
     } else {
-      alert("You can only upload one file!");
+      alert("Please upload a single file");
     }
 
     dropZoneElement.classList.remove("drop-zone--over");
