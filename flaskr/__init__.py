@@ -8,7 +8,7 @@ from . import doc_reader
 
 
 app = Flask(__name__, instance_relative_config=True)
-
+global f
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
      return render_template('upload.html')
@@ -17,7 +17,6 @@ def upload_file():
 @app.route('/uploader', methods=['GET', 'POST'])
 def index():
      if request.method == 'POST':
-          global f
           f = request.files['file']
           theme = request.form['theme']
           f.filename = f.filename.replace(" ","_")
