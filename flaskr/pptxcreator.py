@@ -3,11 +3,11 @@ from pptx import Presentation
 
 
 THEME_PATH = {
-    1: 'static/themes/gallery.pptx',
-    2: 'static/themes/ion.pptx',
-    3: 'static/themes/ion-boardroom.pptx',
-    4: 'static/themes/organic.pptx',
-    5: 'static/themes/slice.pptx'
+    1: 'gallery.pptx',
+    2: 'ion.pptx',
+    3: 'ion-boardroom.pptx',
+    4: 'organic.pptx',
+    5: 'slice.pptx'
 }
 
 
@@ -20,7 +20,7 @@ def create_slides(theme, name, titles, summaries):
         summaries -- (list[list]) slide content
     """
 
-    prs = Presentation(THEME_PATH[theme])
+    prs = Presentation('flaskr/' + THEME_PATH[theme])
 
     title_slide_layout = prs.slide_layouts[0]
     bullet_slide_layout = prs.slide_layouts[1]
@@ -48,6 +48,7 @@ def create_slides(theme, name, titles, summaries):
                 p = tf.add_paragraph()
                 p.text = point
 
+    name.replace('_', ' ')
     prs.save(name + '.pptx')
 
 
