@@ -19,7 +19,7 @@ def final_create(theme,filename):
         a = doc_analyzer.summarize_heading(par.text)
         
         headings.append(a)
-        title_headings.append("Page " + i)
+        title_headings.append("Page " + str(i))
         
     filename_new = filename[:filename.find('.')].title()
     
