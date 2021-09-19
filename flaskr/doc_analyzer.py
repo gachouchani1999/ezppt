@@ -36,11 +36,24 @@ def summarize_heading(heading_text):
                     sentence_weight[sentence] = word_frequencies[word_weight]
         sentence_weight[sentence] = sentence_weight[sentence]
     select_length = 2
+
     summary = nlargest(select_length, sentence_weight, key= sentence_weight.get)
-    
+
     return summary
 
 
+def find_title(heading_text):
+    tokens = word_tokenize(heading_text)
+    word_frequencies = {}
+    for word in tokens :
+        if word.lower() not in stop_words and word.lower() not in punctuation:
+            if word not in word_frequencies.keys():
+                word_frequencies[word] =1
+            else:
+                word_frequencies[word] += 1
+    max_freq = max(word_frequencies.values())
+    return (list(word_frequencies.keys())[list(word_frequencies.values()).index(max_freq)])
+    
 
 
 
