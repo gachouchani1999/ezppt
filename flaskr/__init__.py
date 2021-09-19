@@ -29,7 +29,7 @@ def index():
           file_name = file_name.replace(")","")
           f.save(secure_filename(file_name))
           doc_reader.final_create(int(theme),file_name)
-          
+          os.remove(file_name)
           return render_template('download.html')
 
 
