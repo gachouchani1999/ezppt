@@ -5,6 +5,7 @@ from flask_bootstrap import Bootstrap
 from werkzeug.utils import secure_filename
 from flask import Flask, send_file
 from . import doc_reader
+from . import requesting
 
 
 app = Flask(__name__, instance_relative_config=True)
@@ -15,18 +16,19 @@ def upload_file():
 
 
 @app.route('/uploader', methods=['GET', 'POST'])
+
 def index():
      if request.method == 'POST':
-          global file_name
           f = request.files['file']
+          requesting.store_file(f)
           file_name = f.filename
           file_name = file_name.replace(" ","_")
           theme = request.form['theme']
-          f.filename = f.filename.replace(" ","_")
-          f.filename = f.filename.replace("(","")
-          f.filename = f.filename.replace(")","")
-          f.save(secure_filename(f.filename))
-          doc_reader.final_create(int(theme),f.filename)
+          file_name = file_name.replace(" ","_")
+          file_name = file_name.replace("(","")
+          file_name = file_name.replace(")","")
+          f.save(secure_filename(file_name))
+          doc_reader.final_create(int(theme),file_name)
           
           return render_template('download.html')
 
@@ -34,7 +36,7 @@ def index():
 
 @app.route('/download')
 def download():
-          
+          file_name = requesting.store_file()
           filename_new = file_name[:file_name.find('.')]
           path = '../'+filename_new + '.pptx'
           return send_file(path, as_attachment=True)
