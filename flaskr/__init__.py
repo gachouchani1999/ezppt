@@ -23,6 +23,8 @@ def index():
           file_name = file_name.replace(" ","_")
           theme = request.form['theme']
           f.filename = f.filename.replace(" ","_")
+          f.filename = f.filename.replace("(","")
+          f.filename = f.filename.replace(")","")
           f.save(secure_filename(f.filename))
           doc_reader.final_create(int(theme),f.filename)
           
