@@ -59,10 +59,10 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         updateThumbnail(dropZoneElement, file);
         fileBool = true; updateGenerateBtn();
       } else {
-        console.log("Must be .doc or .docx");
+        alert("FileType must be .doc or .docx");
       }
     } else {
-      console.log("Only drop a single file");
+      alert("You can only upload one file!");
     }
 
     dropZoneElement.classList.remove("drop-zone--over");
@@ -85,10 +85,16 @@ function updateThumbnail(dropZoneElement, file) {
 
   // First time - there is no thumbnail element, so lets create it
   if (!thumbnailElement) {
-    thumbnailElement = document.createElement("div");
-    thumbnailElement.classList.add("drop-zone__thumb");
-    dropZoneElement.appendChild(thumbnailElement);
+    thumbnailDiv = document.createElement("div");
+    thumbnailDiv.setAttribute('class','drop-zone__thumb');
+    thumbnailImage = document.createElement("img");
+    thumbnailImage.src = "/static/media/file.png";
+    thumbnailDiv.appendChild(thumbnailImage);
+    thumbnailText = document.createElement("p");
+    thumbnailText.setAttribute('id','thumbnail-text');
+    thumbnailDiv.appendChild(thumbnailText);
+    dropZoneElement.appendChild(thumbnailDiv);
   }
 
-  thumbnailElement.dataset.label = file.name;
+  document.getElementById('thumbnail-text').innerHTML = file.name;
 }
